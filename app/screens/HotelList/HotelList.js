@@ -3,12 +3,16 @@ import {View, Text, FlatList} from 'react-native';
 import HotelCard from './components/HotelCard';
 import {SearchBar} from 'react-native-elements';
 import styled from 'styled-components';
-import {hotels} from './data';
+// import {hotels} from './data';
+import {getHotels} from '../../services/hotels';
 
 class HotelList extends Component {
   constructor(props) {
     super(props);
     this.state = {search: ''};
+  }
+  componentDidMount() {
+    this.props.getHotels();
   }
 
   updateSearch = search => {
@@ -20,8 +24,8 @@ class HotelList extends Component {
   };
 
   render() {
-    console.log('holaaaaaaa');
-    console.log(global.ErrorUtils);
+    // console.log(global.ErrorUtils);
+    const {hotels} = this.props;
     const {search} = this.state;
     return (
       <View style={{flex: 1}}>

@@ -31,8 +31,9 @@ const Content = styled.View`
 
 const HotelName = styled.Text`
   color: #3c4560;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
+  flex: 1;
 `;
 
 const PriceCaption = styled.Text`
@@ -49,6 +50,7 @@ const HotelInfo = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  flex: 1;
 `;
 
 export {

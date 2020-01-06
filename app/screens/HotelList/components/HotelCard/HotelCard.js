@@ -1,6 +1,5 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-import {View, Text} from 'react-native';
 import {Rating} from 'react-native-elements';
 import {
   Card,
@@ -12,10 +11,8 @@ import {
   Image,
   HotelInfo,
 } from './styles';
-import styled from 'styled-components';
 
 const HotelCard = ({name, price, image, qualification, getDetail, id}) => {
-  console.log(id);
   return (
     <Card onPress={() => getDetail(id)}>
       <Cover>

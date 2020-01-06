@@ -11,7 +11,6 @@ class HotelDetail extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <View>
         <HotelIntroduction />
