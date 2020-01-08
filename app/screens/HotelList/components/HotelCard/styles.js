@@ -33,7 +33,6 @@ const HotelName = styled.Text`
   color: #3c4560;
   font-size: 18px;
   font-weight: bold;
-  flex: 1;
 `;
 
 const PriceCaption = styled.Text`

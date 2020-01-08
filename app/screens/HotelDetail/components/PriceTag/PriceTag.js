@@ -13,7 +13,7 @@ class PriceTag extends React.PureComponent {
     return (
       <PriceCard>
         <PriceCaption>{'Precio Por noche'}</PriceCaption>
-        <PriceInfo>{`ARS ${price}`}</PriceInfo>
+        <PriceInfo>{`ARS $${price}`}</PriceInfo>
       </PriceCard>
     );
   }

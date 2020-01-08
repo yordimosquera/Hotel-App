@@ -3,8 +3,6 @@ import {View, Text, FlatList} from 'react-native';
 import HotelCard from './components/HotelCard';
 import {SearchBar} from 'react-native-elements';
 import styled from 'styled-components';
-// import {hotels} from './data';
-import {getHotels} from '../../services/hotels';
 
 class HotelList extends Component {
   constructor(props) {
@@ -19,12 +17,13 @@ class HotelList extends Component {
     this.setState({search});
   };
 
-  getDetail = id => {
-    this.props.history.push({pathname: '/detail', state: {id}});
+  getDetail = hotelInfo => {
+    this.props.history.push({pathname: '/detail', state: {hotelInfo}});
   };
 
   render() {
     // console.log(global.ErrorUtils);
+    console.log(this.state.search);
     const {hotels} = this.props;
     const {search} = this.state;
     return (
@@ -44,7 +43,7 @@ class HotelList extends Component {
               name={item.name}
               qualification={item.qualification}
               price={item.price}
-              image={item.image}
+              image={'https://image.flaticon.com/icons/png/512/15/15476.png'}
               getDetail={this.getDetail}
               id={item.id}
             />

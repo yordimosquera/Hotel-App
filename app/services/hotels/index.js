@@ -2,7 +2,9 @@ import axios from 'axios';
 
 export const getHotels = async () => {
   try {
-    const {data} = await axios.get(`http://192.168.0.3:3200/hotels`);
+    const {data} = await axios.get(
+      `https://hotels-app-almundo.herokuapp.com/hotels`,
+    );
     return {
       data,
       error: false,

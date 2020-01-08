@@ -14,7 +14,7 @@ import {
 
 const HotelCard = ({name, price, image, qualification, getDetail, id}) => {
   return (
-    <Card onPress={() => getDetail(id)}>
+    <Card onPress={() => getDetail({name, price, image, qualification, id})}>
       <Cover>
         <Image
           source={{
