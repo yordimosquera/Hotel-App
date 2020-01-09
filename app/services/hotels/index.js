@@ -16,3 +16,21 @@ export const getHotels = async () => {
     };
   }
 };
+
+export const searchHotelsByText = (word, hotels) => {
+  try {
+    const wordToSearch = word.toLowerCase();
+    const hotelsFinded = hotels.filter(
+      hotel => hotel.name.toLowerCase().indexOf(wordToSearch) >= 0,
+    );
+    return {
+      data: {items: hotelsFinded},
+      error: false,
+    };
+  } catch (error) {
+    return {
+      error,
+      data: [],
+    };
+  }
+};

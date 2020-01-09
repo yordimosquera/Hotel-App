@@ -11,10 +11,10 @@ class HotelIntroduction extends React.PureComponent {
     return (
       <ImageDetail
         source={{
-          uri: `res.cloudinary.com/du6baewj2/image/upload/v1578372169/almundo-hotels/${image}`,
+          uri: image,
         }}>
         <Card>
-          <HotelName>{name}</HotelName>
+          <HotelName isDetail={true}>{name}</HotelName>
           <Rating imageSize={20} readonly startingValue={qualification} />
         </Card>
       </ImageDetail>

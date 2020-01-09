@@ -6,11 +6,12 @@ const Card = styled.TouchableOpacity`
   border-radius: 6px;
   margin: 10px;
   elevation: 5;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 `;
 
 const Cover = styled.View`
   width: 100%;
-  height: 120px;
+  height: 130px;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   overflow: hidden;
@@ -30,17 +31,21 @@ const Content = styled.View`
 `;
 
 const HotelName = styled.Text`
-  color: #3c4560;
+  color: rgba(60, 69, 96, 1);
   font-size: 18px;
   font-weight: bold;
+  width: 60%;
 `;
 
 const PriceCaption = styled.Text`
-  color: rgba(184, 179, 195, 1);
+  color: ${props =>
+    props.isDetail ? 'rgba(255, 255, 255, 1)' : 'rgba(184, 179, 195, 1)'};
+  margin-left: 20px;
 `;
 
 const PriceInfo = styled.Text`
-  color: rgba(253, 185, 20, 1);
+  color: ${props =>
+    props.isDetail ? 'rgba(255, 255, 255, 1)' : 'rgba(253, 185, 20, 1)'};
   font-size: 20px;
   font-weight: bold;
 `;
@@ -48,8 +53,8 @@ const PriceInfo = styled.Text`
 const HotelInfo = styled.View`
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
   flex: 1;
+  justify-content: space-between;
 `;
 
 export {

@@ -7,16 +7,18 @@ export const hotelsState = createReducer(
     [GET_HOTELS](state, action) {
       return {
         ...state,
-        hotels: action.data.data.items,
+        hotels: action.hotels,
         error: false,
-        size: action.data.data.size,
+        size: action.size,
         lastUpdated: Date.now(),
+        hotelsList: action.hotelsList,
       };
     },
     [GET_HOTELS_FAIL](state, action) {
       return {
         ...state,
         error: action.error,
+        size: action.size,
       };
     },
   },
