@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
 import {Link} from 'react-router-native';
 import HotelIntroduction from './components/HotelIntroduction';
 import PriceTag from './components/PriceTag';
+import Map from './components/Map';
 import {Header, Icon} from 'react-native-elements';
+import {navbar} from '../HotelList/styles';
 
 class HotelDetail extends Component {
   constructor(props) {
@@ -17,10 +19,11 @@ class HotelDetail extends Component {
       image,
       price,
       qualification,
+      position,
     } = this.props.location.state.hotelInfo;
 
     return (
-      <View>
+      <View style={{flex: 1}}>
         <Header
           leftComponent={
             <Link to="/hotels">
@@ -33,11 +36,7 @@ class HotelDetail extends Component {
           }
           centerComponent={{
             text: 'HotelsApp',
-            style: {
-              color: 'rgba(255, 255, 255, 1)',
-              fontSize: 20,
-              fontWeight: 'bold',
-            },
+            style: navbar,
           }}
         />
         <HotelIntroduction
@@ -46,6 +45,7 @@ class HotelDetail extends Component {
           qualification={qualification}
         />
         <PriceTag price={price} />
+        <Map coordinates={position} name={name} />
       </View>
     );
   }
