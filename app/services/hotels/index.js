@@ -1,10 +1,8 @@
 import axios from 'axios';
-
+const url = 'https://hotels-app-almundo.herokuapp.com';
 export const getHotels = async () => {
   try {
-    const {data} = await axios.get(
-      `https://hotels-app-almundo.herokuapp.com/hotels`,
-    );
+    const {data} = await axios.get(`${url}/hotels`);
     return {
       data,
       error: false,
