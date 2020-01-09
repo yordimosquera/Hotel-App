@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {View, StatusBar, FlatList, ActivityIndicator} from 'react-native';
+import {View, StatusBar, FlatList} from 'react-native';
 import HotelCard from './components/HotelCard';
 import {SearchBar, Header} from 'react-native-elements';
 import styled from 'styled-components';
+import {navbar} from './styles';
 
 class HotelList extends Component {
   constructor(props) {
@@ -29,15 +30,11 @@ class HotelList extends Component {
     const {search} = this.state;
     return (
       <View style={{flex: 1}}>
-        {/* <StatusBar translucent backgroundColor="transparent" /> */}
+        <StatusBar translucent backgroundColor="transparent" />
         <Header
           centerComponent={{
             text: 'HotelsApp',
-            style: {
-              color: 'rgba(255, 255, 255, 1)',
-              fontSize: 20,
-              fontWeight: 'bold',
-            },
+            style: navbar,
           }}
         />
         <SearchBar
@@ -46,8 +43,6 @@ class HotelList extends Component {
           onChangeText={this.updateSearch}
           onCancel={getHotels}
           value={search}
-          // containerStyle={searchBar}
-          // inputStyle={searchBar}
         />
         {error ? (
           <ErrorText>
@@ -63,34 +58,31 @@ class HotelList extends Component {
                 price={item.price}
                 image={item.image}
                 getDetail={this.getDetail}
-                id={item.id}
+                position={item.position}
+                id={item._id}
               />
             )}
-            keyExtractor={item => item.id}
+            keyExtractor={item => item._id}
           />
         ) : (
-          <ActivityIndicator size="large" color="#0000ff" />
+          <HotelsIndicator size="large" color="rgba(253, 185, 20, 1)" />
         )}
       </View>
     );
   }
 }
 
-const searchBar = {
-  backgroundColor: 'rgba(255, 255, 255, 1)',
-};
-
-const icon = {
-  type: 'material',
-  color: 'rgba(253, 185, 20, 1)',
-  name: 'search',
-};
-
 const ErrorText = styled.Text`
+  margin-top: 230px;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 18px;
   align-self: center;
   color: rgba(184, 179, 195, 1);
-  width: 60%;
+  width: 90%;
 `;
+
+const HotelsIndicator = styled.ActivityIndicator`
+  margin-top: 300px;
+`;
+
 export default HotelList;

@@ -12,9 +12,20 @@ import {
   HotelInfo,
 } from './styles';
 
-const HotelCard = ({name, price, image, qualification, getDetail, id}) => {
+const HotelCard = ({
+  name,
+  price,
+  image,
+  qualification,
+  getDetail,
+  id,
+  position,
+}) => {
   return (
-    <Card onPress={() => getDetail({name, price, image, qualification, id})}>
+    <Card
+      onPress={() =>
+        getDetail({name, price, image, qualification, id, position})
+      }>
       <Cover>
         <Image
           // resizeMode={'contain'}
