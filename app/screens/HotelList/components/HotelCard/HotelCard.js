@@ -1,6 +1,5 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-import {View, Text} from 'react-native';
 import {Rating} from 'react-native-elements';
 import {
   Card,
@@ -12,14 +11,13 @@ import {
   Image,
   HotelInfo,
 } from './styles';
-import styled from 'styled-components';
 
 const HotelCard = ({name, price, image, qualification, getDetail, id}) => {
-  console.log(id);
   return (
-    <Card onPress={() => getDetail(id)}>
+    <Card onPress={() => getDetail({name, price, image, qualification, id})}>
       <Cover>
         <Image
+          // resizeMode={'contain'}
           source={{
             uri: image,
           }}
@@ -27,12 +25,12 @@ const HotelCard = ({name, price, image, qualification, getDetail, id}) => {
       </Cover>
       <Content>
         <HotelInfo>
-          <HotelName>{name}</HotelName>
+          <HotelName numberOfLines={1}>{name}</HotelName>
           <PriceCaption>{'Precio por la noche'}</PriceCaption>
         </HotelInfo>
         <HotelInfo>
           <Rating imageSize={20} readonly startingValue={qualification} />
-          <PriceInfo>{`ARS ${price}`}</PriceInfo>
+          <PriceInfo>{`ARS $${price}`}</PriceInfo>
         </HotelInfo>
       </Content>
     </Card>

@@ -10,7 +10,8 @@ const Card = styled.View`
   align-items: center
   justify-content: space-evenly;
   top: 80%;
-  position: absolute
+  position: absolute;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 `;
 
 const ImageDetail = styled.ImageBackground`

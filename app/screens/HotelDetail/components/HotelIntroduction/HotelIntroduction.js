@@ -6,15 +6,15 @@ import {Rating} from 'react-native-elements';
 
 class HotelIntroduction extends React.PureComponent {
   render() {
-    const {name, qualification} = this.props;
+    const {name, qualification, image} = this.props;
 
     return (
       <ImageDetail
         source={{
-          uri: 'https://facebook.github.io/react-native/img/tiny_logo.png',
+          uri: image,
         }}>
         <Card>
-          <HotelName>{name}</HotelName>
+          <HotelName isDetail={true}>{name}</HotelName>
           <Rating imageSize={20} readonly startingValue={qualification} />
         </Card>
       </ImageDetail>
