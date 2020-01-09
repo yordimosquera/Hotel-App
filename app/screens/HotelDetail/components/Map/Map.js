@@ -5,10 +5,13 @@ import styled from 'styled-components';
 
 class Map extends React.PureComponent {
   render() {
-    const {coordinates, name} = this.props;
+    const {
+      coordinates: {latitude, longitude},
+      name,
+    } = this.props;
     const region = {
-      latitude: coordinates.latitude,
-      longitude: coordinates.longitude,
+      latitude: latitude,
+      longitude: longitude,
       latitudeDelta: 0.0922,
       longitudeDelta: 0.0421,
     };
